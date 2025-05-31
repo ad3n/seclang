@@ -9,8 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/corazawaf/coraza/v3/internal/corazawaf"
-	"github.com/corazawaf/coraza/v3/internal/environment"
+	"github.com/ad3n/seclang/internal/corazawaf"
+	"github.com/ad3n/seclang/internal/environment"
+
 	"github.com/corazawaf/coraza/v3/types"
 )
 

@@ -17,9 +17,10 @@ import (
 	"github.com/jcchavezs/mergefs"
 	"github.com/jcchavezs/mergefs/io"
 
+	coraza "github.com/ad3n/seclang/internal/corazawaf"
+
 	coreruleset "github.com/corazawaf/coraza-coreruleset"
 	"github.com/corazawaf/coraza/v3/debuglog"
-	coraza "github.com/corazawaf/coraza/v3/internal/corazawaf"
 )
 
 //go:embed testdata

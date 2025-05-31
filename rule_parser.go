@@ -8,12 +8,13 @@ import (
 	"fmt"
 	"strings"
 
+	actionsmod "github.com/ad3n/seclang/internal/actions"
+	"github.com/ad3n/seclang/internal/corazawaf"
+	"github.com/ad3n/seclang/internal/operators"
+	utils "github.com/ad3n/seclang/internal/strings"
+
+	"github.com/ad3n/seclang/experimental/plugins/plugintypes"
 	"github.com/corazawaf/coraza/v3/debuglog"
-	"github.com/corazawaf/coraza/v3/experimental/plugins/plugintypes"
-	actionsmod "github.com/corazawaf/coraza/v3/internal/actions"
-	"github.com/corazawaf/coraza/v3/internal/corazawaf"
-	"github.com/corazawaf/coraza/v3/internal/operators"
-	utils "github.com/corazawaf/coraza/v3/internal/strings"
 	"github.com/corazawaf/coraza/v3/types"
 	"github.com/corazawaf/coraza/v3/types/variables"
 )

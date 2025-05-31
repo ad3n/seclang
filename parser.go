@@ -12,9 +12,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/corazawaf/coraza/v3/internal/corazawaf"
-	"github.com/corazawaf/coraza/v3/internal/environment"
-	"github.com/corazawaf/coraza/v3/internal/io"
+	"github.com/ad3n/seclang/internal/corazawaf"
+	"github.com/ad3n/seclang/internal/environment"
+	"github.com/ad3n/seclang/internal/io"
 )
 
 // maxIncludeRecursion is used to avoid DDOS by including files that include
@@ -48,7 +48,7 @@ func (p *Parser) FromFile(profilePath string) error {
 		}
 
 		if len(files) == 0 {
-			p.options.WAF.Logger.Warn().Int("line", p.currentLine).Msg("empty glob result")
+			return fmt.Errorf("path %s is not valid", profilePath)
 		}
 	} else {
 		files = append(files, profilePath)
@@ -220,6 +220,17 @@ func NewParser(waf *corazawaf.WAF) *Parser {
 	p := &Parser{
 		options: &DirectiveOptions{
 			WAF:      waf,
+			Datasets: make(map[string][]string),
+		},
+		root: io.OSFS{},
+	}
+	return p
+}
+
+func NewDefaultParser() *Parser {
+	p := &Parser{
+		options: &DirectiveOptions{
+			WAF:      corazawaf.NewWAF(),
 			Datasets: make(map[string][]string),
 		},
 		root: io.OSFS{},
